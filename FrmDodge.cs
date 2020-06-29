@@ -14,6 +14,8 @@ namespace Dodge3
     {
         Graphics g; //declare a graphics object called g
         Planet[] planet = new Planet[7];
+        Random yspeed = new Random();
+        Spaceship spaceship = new Spaceship();
 
         public FrmDodge()
         {
@@ -24,7 +26,6 @@ namespace Dodge3
                 int x = 10 + (i * 75);
                 planet[i] = new Planet(x);
             }
-
         }
 
         private void pnlGame_Paint(object sender, PaintEventArgs e)
@@ -34,11 +35,15 @@ namespace Dodge3
             //call the Planet class's DrawPlanet method to draw the image planet1 
             for (int i = 0; i < 7; i++)
             {
+                // generate a random number from 5 to 20 and put it in rndmspeed
+                int rndmspeed = yspeed.Next(5,20);
+                planet[i].y += rndmspeed;
+
                 //call the Planet class's drawPlanet method to draw the images
                 planet[i].DrawPlanet(g);
             }
 
-
+            spaceship.DrawSpaceship(g);
         }
 
         private void TmrPlanet_Tick(object sender, EventArgs e)

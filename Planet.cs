@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+
 namespace Dodge3
 {
     class Planet
@@ -36,7 +37,6 @@ namespace Dodge3
 
         public void MovePlanet()
         {
-            y += 5;
             planetRec.Location = new Point(x, y);
         }
 
