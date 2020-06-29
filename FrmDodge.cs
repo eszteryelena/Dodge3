@@ -40,5 +40,14 @@ namespace Dodge3
 
 
         }
+
+        private void TmrPlanet_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                planet[i].MovePlanet();
+            }
+            pnlGame.Invalidate();//makes the paint event fire to redraw the panel
+        }
     }
 }
